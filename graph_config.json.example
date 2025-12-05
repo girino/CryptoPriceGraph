@@ -1,0 +1,13 @@
+{
+  "base_currency": "BTC",
+  "quote_currency": "USDT",
+  "time_interval": "1d",
+  "periods": null,
+  "graph_format": "candle",
+  "dot_values": "all",
+  "width": null,
+  "height": null,
+  "use_unicode": "auto",
+  "use_color": "auto"
+}
+
