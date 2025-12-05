@@ -1,6 +1,6 @@
 # PowerShell script to create/setup the virtual environment
 
-$VENV_DIR = "venv"
+$VENV_DIR = "venv-windows"
 
 # Check if the virtual environment directory already exists
 if (Test-Path $VENV_DIR) {

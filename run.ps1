@@ -1,6 +1,6 @@
 # PowerShell script to run graph.py from the virtual environment
 
-$VENV_DIR = "venv"
+$VENV_DIR = "venv-windows"
 $SCRIPT = "graph.py"
 
 # Check if virtual environment exists

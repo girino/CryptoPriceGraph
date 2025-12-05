@@ -125,5 +125,7 @@ The script automatically detects:
 
 ## License
 
-[Add your license here]
+This project is licensed under **Girino's Anarchist License (GAL)**.
+
+See [LICENSE](LICENSE) file for details, or visit https://license.girino.org
 
