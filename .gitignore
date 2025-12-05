@@ -9,6 +9,9 @@ ENV/
 # Config files (may contain sensitive data)
 config.json
 
+# Documentation (local development context)
+CONTEXT.md
+
 # Python cache
 __pycache__/
 *.py[cod]

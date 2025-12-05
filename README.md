@@ -26,15 +26,21 @@ A terminal-based cryptocurrency price graph generator that displays historical p
    ```
 
 2. Create and activate a virtual environment:
+
+   **Windows PowerShell:**
    ```powershell
-   # Windows PowerShell
    .\create_venv.ps1
+   ```
+
+   **Linux/macOS/Cygwin (Bash):**
+   ```bash
+   ./create_venv.sh
    ```
 
    Or manually:
    ```bash
    python -m venv venv
-   source venv/bin/activate  # On Linux/Mac
+   source venv/bin/activate  # On Linux/Mac/Cygwin
    venv\Scripts\activate     # On Windows
    pip install -r requirements.txt
    ```
@@ -43,15 +49,22 @@ A terminal-based cryptocurrency price graph generator that displays historical p
 
 ### Quick Start
 
+**Windows PowerShell:**
 ```powershell
-# Windows PowerShell
 .\run.ps1 --base-currency BTC --quote-currency USDT --time-interval 1d --graph-format candle
 ```
 
-Or directly:
+**Linux/macOS/Cygwin (Bash):**
+```bash
+./run.sh --base-currency BTC --quote-currency USDT --time-interval 1d --graph-format candle
+```
+
+**Direct Python execution:**
 ```bash
 python graph.py --base-currency BTC --quote-currency USDT --time-interval 1d --graph-format candle
 ```
+
+Note: The bash scripts automatically detect if running on Cygwin and use the appropriate virtual environment (`venv-cygwin` for Cygwin, `venv-unix` for other Unix systems). PowerShell scripts use `venv-windows`.
 
 ### Configuration File
 
@@ -122,6 +135,30 @@ The script automatically detects:
 - **Unicode Support**: Checks if terminal supports Unicode characters
 - **Color Support**: Checks if terminal supports ANSI color codes
 - **Optimal Periods**: Calculates how many periods fit on screen based on graph format
+
+## Platform Support
+
+- **Windows**: Use PowerShell scripts (`create_venv.ps1`, `run.ps1`) - creates `venv-windows/`
+- **Linux/macOS**: Use Bash scripts (`create_venv.sh`, `run.sh`) - creates `venv-unix/`
+- **Cygwin**: Use Bash scripts (`create_venv.sh`, `run.sh`) - automatically detects Cygwin and creates `venv-cygwin/`
+
+The bash scripts automatically detect the platform and use the appropriate virtual environment directory.
+
+## Troubleshooting
+
+### Virtual Environment Issues
+- If you get "virtual environment does not exist" errors, make sure you've run the appropriate setup script first
+- On Unix systems, you may need to make scripts executable: `chmod +x create_venv.sh run.sh`
+
+### Unicode/Color Display Issues
+- If Unicode characters don't display correctly, use `--use-unicode false`
+- If colors don't work, check your terminal's ANSI color support or use `--use-color false`
+- Some terminals may require specific settings for UTF-8 encoding
+
+### Binance API Issues
+- The script uses public Binance API endpoints (no API keys required)
+- If you encounter rate limiting or connection errors, wait a moment and try again
+- Ensure you have an active internet connection
 
 ## License
 
