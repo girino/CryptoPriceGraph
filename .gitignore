@@ -11,6 +11,7 @@ config.json
 
 # Documentation (local development context)
 CONTEXT.md
+SOCIAL_MEDIA_POSTS.md
 
 # Python cache
 __pycache__/

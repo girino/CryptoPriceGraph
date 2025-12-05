@@ -2,6 +2,10 @@
 
 A terminal-based cryptocurrency price graph generator that displays historical price data as ASCII/Unicode charts.
 
+## Screenshot
+
+![CryptoPriceGraph Screenshot](https://nostrcheck.girino.org/media/1c7b9d8ad004585a791bbd0d8eec508af96765701945f17f85eac05a29ca178b.png)
+
 ## Features
 
 - **Multiple Graph Formats**: Candle charts or dot graphs
