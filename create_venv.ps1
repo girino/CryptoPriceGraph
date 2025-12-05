@@ -36,5 +36,5 @@ if ($LASTEXITCODE -ne 0) {
 }
 
 Write-Host "Virtual environment created successfully!" -ForegroundColor Green
-Write-Host "You can now use 'run_graph.ps1' to run the graph script."
+Write-Host "You can now use 'run.ps1' to run the graph script."
 

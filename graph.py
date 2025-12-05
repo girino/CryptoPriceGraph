@@ -42,7 +42,7 @@ class Colors:
     LOW_COLOR = BRIGHT_YELLOW
     CLOSE_COLOR = BRIGHT_WHITE
 
-def load_config(config_path='graph_config.json'):
+def load_config(config_path='config.json'):
     """Load configuration from JSON or YAML file."""
     if not os.path.exists(config_path):
         return {}
@@ -75,7 +75,7 @@ def parse_arguments():
     parser.add_argument('--height', type=int, help='Graph height in lines (optional, auto-detect default)')
     parser.add_argument('--use-unicode', type=str, choices=['auto', 'true', 'false'], help='Use unicode: auto, true, or false')
     parser.add_argument('--use-color', type=str, choices=['auto', 'true', 'false'], help='Use colors: auto, true, or false')
-    parser.add_argument('-f', '--config', type=str, default='graph_config.json', help='Path to config file (default: graph_config.json)')
+    parser.add_argument('-f', '--config', type=str, default='config.json', help='Path to config file (default: config.json)')
     return parser.parse_args()
 
 def get_config():
@@ -524,6 +524,17 @@ def render_graph(price_data, config):
     output_lines.append("=" * min(len(legend), terminal_width))
     output_lines.append("")
     
+    # Format info - truncate if too long
+    format_info = f"Format: {config['graph_format']}"
+    if config['graph_format'] == 'dot':
+        format_info += f" (showing: {config['dot_values']})"
+    format_info += f" | Unicode: {use_unicode} | Color: {use_color}"
+    # Truncate format info if it exceeds terminal width
+    if len(format_info) > terminal_width:
+        format_info = format_info[:terminal_width-3] + "..."
+    output_lines.append(format_info)
+    output_lines.append("")
+    
     # Y-axis labels and graph
     price_step = (max_price - min_price) / (graph_height - 1)
     
@@ -601,17 +612,6 @@ def render_graph(price_data, config):
         if len(label_line) > terminal_width:
             label_line = label_line[:terminal_width]
         output_lines.append(label_line)
-    
-    # Format info - truncate if too long
-    format_info = f"Format: {config['graph_format']}"
-    if config['graph_format'] == 'dot':
-        format_info += f" (showing: {config['dot_values']})"
-    format_info += f" | Unicode: {use_unicode} | Color: {use_color}"
-    # Truncate format info if it exceeds terminal width
-    if len(format_info) > terminal_width:
-        format_info = format_info[:terminal_width-3] + "..."
-    output_lines.append("")
-    output_lines.append(format_info)
     
     return '\n'.join(output_lines)
 

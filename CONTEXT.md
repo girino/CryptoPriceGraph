@@ -86,7 +86,7 @@ Terminal-based cryptocurrency price graph generator that displays historical pri
 
 ### Configuration Parameters
 
-#### Config File (`graph_config.json`)
+#### Config File (`config.json`)
 ```json
 {
   "base_currency": "BTC",
@@ -113,7 +113,7 @@ Terminal-based cryptocurrency price graph generator that displays historical pri
 - `--height`: Graph height in lines (null = auto)
 - `--use-unicode`: `auto`, `true`, or `false`
 - `--use-color`: `auto`, `true`, or `false`
-- `-f, --config`: Config file path (default: `graph_config.json`)
+- `-f, --config`: Config file path (default: `config.json`)
 
 ### Dependencies
 - `python-binance==1.0.15` - Binance API client
@@ -123,11 +123,11 @@ Terminal-based cryptocurrency price graph generator that displays historical pri
 ```
 CryptoPriceGraph/
 ├── graph.py                    # Main script
-├── graph_config.json           # User config (gitignored)
-├── graph_config.json.example   # Config template
+├── config.json                 # User config (gitignored)
+├── config.json.example         # Config template
 ├── requirements.txt            # Dependencies
-├── create_graph_venv.ps1       # Virtual environment setup
-├── run_graph.ps1               # PowerShell runner script
+├── create_venv.ps1             # Virtual environment setup
+├── run.ps1                     # PowerShell runner script
 ├── README.md                   # Documentation
 ├── CONTEXT.md                  # This file
 └── .gitignore                  # Git ignore rules
@@ -136,13 +136,13 @@ CryptoPriceGraph/
 ### Usage Examples
 ```powershell
 # Basic candle chart
-.\run_graph.ps1 --base-currency BTC --quote-currency USDT --time-interval 1d --graph-format candle
+.\run.ps1 --base-currency BTC --quote-currency USDT --time-interval 1d --graph-format candle
 
 # Dot graph with only high prices
-.\run_graph.ps1 --base-currency ETH --quote-currency BRL --time-interval 1h --graph-format dot --dot-values high
+.\run.ps1 --base-currency ETH --quote-currency BRL --time-interval 1h --graph-format dot --dot-values high
 
 # Force ASCII and color
-.\run_graph.ps1 --base-currency BTC --quote-currency USDT --use-unicode false --use-color true
+.\run.ps1 --base-currency BTC --quote-currency USDT --use-unicode false --use-color true
 ```
 
 ### Design Decisions

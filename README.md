@@ -28,7 +28,7 @@ A terminal-based cryptocurrency price graph generator that displays historical p
 2. Create and activate a virtual environment:
    ```powershell
    # Windows PowerShell
-   .\create_graph_venv.ps1
+   .\create_venv.ps1
    ```
 
    Or manually:
@@ -45,7 +45,7 @@ A terminal-based cryptocurrency price graph generator that displays historical p
 
 ```powershell
 # Windows PowerShell
-.\run_graph.ps1 --base-currency BTC --quote-currency USDT --time-interval 1d --graph-format candle
+.\run.ps1 --base-currency BTC --quote-currency USDT --time-interval 1d --graph-format candle
 ```
 
 Or directly:
@@ -55,7 +55,7 @@ python graph.py --base-currency BTC --quote-currency USDT --time-interval 1d --g
 
 ### Configuration File
 
-Create a `graph_config.json` file (you can copy from `graph_config.json.example`):
+Create a `config.json` file (you can copy from `config.json.example`):
 
 ```json
 {
@@ -83,7 +83,7 @@ All parameters can be passed via command line (they take precedence over config 
 - `--height`: Graph height in lines (auto-detect if not specified)
 - `--use-unicode`: `auto`, `true`, or `false`
 - `--use-color`: `auto`, `true`, or `false`
-- `-f, --config`: Path to config file (default: `graph_config.json`)
+- `-f, --config`: Path to config file (default: `config.json`)
 
 ### Examples
 

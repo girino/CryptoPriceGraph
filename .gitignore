@@ -4,7 +4,7 @@ env/
 ENV/
 
 # Config files (may contain sensitive data)
-graph_config.json
+config.json
 
 # Python cache
 __pycache__/

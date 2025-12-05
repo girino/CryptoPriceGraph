@@ -6,7 +6,7 @@ $SCRIPT = "graph.py"
 # Check if virtual environment exists
 if (-not (Test-Path $VENV_DIR)) {
     Write-Host "Virtual environment '$VENV_DIR' does not exist." -ForegroundColor Red
-    Write-Host "Please run 'create_graph_venv.ps1' first to create it." -ForegroundColor Yellow
+    Write-Host "Please run 'create_venv.ps1' first to create it." -ForegroundColor Yellow
     exit 1
 }
 
